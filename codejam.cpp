@@ -14,19 +14,19 @@ codejam::codejam(int argc, char** argv){
 		if (std::string(argv[i]).compare("--debug")==0) 
 			is_debug = true;
 		else if (std::string(argv[i]).compare("-o")==0){
-			if (!(i < argc-1)) std::cerr << "No output file name!";
-            else if (outfile.size()!=0) std::cerr << "No multiple output!";
+			if (!(i < argc-1)) std::cerr << "No output file name!" << std::endl;
+            else if (outfile.size()!=0) std::cerr << "No multiple output!" << std::endl;
             else outfile = std::string(argv[++i]);
 		}else
 			filenames.push_back(std::string(argv[i]));
 	if (!is_debug) disable_clog();
     if (filenames.size()>1) {
-        std::cerr << "No multiple input files!";
+        std::cerr << "No multiple input files!" << std::endl;
         throw std::ios_base::failure("Multiple Input Files");
     }
     else if (filenames.size()<1) {
-        std::cerr << "No input files!";
-        throw std::ios_base::failure("No Input File");
+        std::cerr << "No input files! Use default 'input.txt'." << std::endl;
+        //throw std::ios_base::failure("No Input File");
     }
     else infile = filenames[0];
     if (outfile.size()==0) outfile = "output.txt";
@@ -37,7 +37,7 @@ int codejam::exec(){
     input_stream.open(infile.c_str());
     output_stream.open(outfile.c_str());
     if (!input_stream.is_open()){
-        std::cerr << "Input file failure!";
+        std::cerr << "Input file failure!" << std::endl;
         throw std::ifstream::failure("Input File Failure");
     }
     size_t T;
