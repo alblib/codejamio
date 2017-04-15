@@ -26,6 +26,7 @@ codejam::codejam(int argc, char** argv){
     }
     else if (filenames.size()<1) {
         std::cerr << "No input files! Use default 'input.txt'." << std::endl;
+        infile = "input.txt";
         //throw std::ios_base::failure("No Input File");
     }
     else infile = filenames[0];
