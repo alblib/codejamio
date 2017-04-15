@@ -34,14 +34,18 @@ codejam::codejam(int argc, char** argv){
 
 int codejam::exec(){
     int result=0;
-    input_stream.open(infile);
-    output_stream.open(outfile);
+    input_stream.open(infile.c_str());
+    output_stream.open(outfile.c_str());
+    if (!input_stream.is_open()){
+        std::cerr << "Input file failure!";
+        throw std::ifstream::failure("Input File Failure");
+    }
     size_t T;
     input_stream >> T;
     for (size_t i = 0; i < T; ++i){
         output_stream << "Case #" << i+1 << ": ";
         result |= (this->thread());
-        output_stream << std::endl;
+        output_stream << "\r\n";
     }
     input_stream.close();
     output_stream.close();

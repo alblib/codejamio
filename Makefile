@@ -1,4 +1,4 @@
-GXX = g++
+GXX = clang++
 TLB = ar rcs
 SRC = codejam.cpp
 HDR = codejam.h
