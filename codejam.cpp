@@ -45,7 +45,7 @@ int codejam::exec(){
     for (size_t i = 0; i < T; ++i){
         output_stream << "Case #" << i+1 << ": ";
         result |= (this->thread());
-        output_stream << "\r\n";
+        output_stream << std::endl;
     }
     input_stream.close();
     output_stream.close();
