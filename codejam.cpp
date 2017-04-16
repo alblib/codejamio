@@ -1,6 +1,8 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <stdexcept>
+#include <exception>
 #include "codejam.h"
 
 
@@ -45,7 +47,14 @@ int codejam::exec(){
     input_stream >> T;
     for (size_t i = 0; i < T; ++i){
         output_stream << "Case #" << i+1 << ": ";
-        result |= (this->thread());
+		try {
+			result |= (this->thread());
+		}
+		catch (std::exception& e) {
+			std::cerr << "Exception catched during Case #"
+				<< i + 1 << std::endl << e.what() << std::endl;
+			output_stream << "EXCEPTION: " << e.what();
+		}
         output_stream << std::endl;
     }
     input_stream.close();
