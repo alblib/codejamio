@@ -4,7 +4,7 @@
 class codejam{
 private:
 	std::streambuf *clog_orig, *cerr_orig;
-    std::string infile,outfile;
+	std::string infile,outfile;
 public:
 	codejam(int argc, char** argv);
 	void disable_clog();
@@ -16,6 +16,6 @@ public:
 	std::ifstream input_stream;
 	std::ofstream output_stream;
 
-    int exec();
-    virtual int thread() = 0;
+	int exec();
+	virtual int thread() = 0;
 };

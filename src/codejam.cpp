@@ -3,7 +3,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <exception>
-#include "codejam.h"
+#include "../include/codejam.h"
 
 
 codejam::codejam(int argc, char** argv){

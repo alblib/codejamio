@@ -1,4 +1,4 @@
-#include "codejam.h"
+#include "include/codejam.h"
 #include <fstream>
 #include <iostream>
 #include <string>
